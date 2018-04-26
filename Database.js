@@ -31,7 +31,6 @@ class TournamentDataManage {
             me.connection.query('insert into Player set PlayerID =?, PlayerName =?, TeamName= ?',
                 [ID,pname,tname] , function (error, results, fields) {
                 if (error) throw error;
-                console.log('The solution is: ', results);
             });
         });
     }
@@ -44,7 +43,6 @@ class TournamentDataManage {
             me.connection.query('delete from Player\n' +
                 'where PlayerID =?',ID, function (error, results, fields) {
                 if (error) throw error;
-                console.log('The solution is: ', results);
             });
         });
     }
@@ -57,7 +55,6 @@ class TournamentDataManage {
             me.connection.query('update Player set PlayerName =?, TeamName =? where PlayerID =?',[pname,tname,ID],
                 function (error, results, fields) {
                 if (error) throw error;
-                console.log('The solution is: ', results);
             });
         });
     }
@@ -69,7 +66,6 @@ class TournamentDataManage {
             if (err) throw err;
             me.connection.query('select * from Player', function (error, results, fields) {
                 if (error) throw error;
-                console.log('The solution is: ', results);
                 me.close();
             });
         });
@@ -78,21 +74,23 @@ class TournamentDataManage {
     //diese funktion zeigt einen Spieler aus der Datenbank mit values.
     getPlayerByID(ID) {
         var me = this;
+        var result = null;
         this.connection.connect(function (err) {
             if (err) throw err;
             me.connection.query('select * from Player\n' +
                 'where PlayerID =?',ID, function (error, results, fields) {
                 if (error) throw error;
-                console.log('The solution is: ', results);
                 me.close();
+                result = results;
+                console.log('1' + result)
             });
         });
+        return result;
     }
 
 
     close() {
         this.connection.end(function (err) {
-            console.log('End')
         });
     }
 

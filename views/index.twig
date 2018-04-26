@@ -1,6 +1,9 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <div id="main">
+        <label>Spieler:</label>
+        <button id="addPlayerButton">add</button>
+    </div>
+    <script src="/public/javascripts/player.js"></script>
 {% endblock %}

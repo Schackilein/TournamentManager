@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 
 var playerRouter = require('./routes/player');
+var teamRouter = require('./routes/team');
 
 
 var app = express();
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/player', playerRouter);
+// app.use('/team,', teamRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

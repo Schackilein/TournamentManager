@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/player', playerRouter);
-// app.use('/team,', teamRouter);
+app.use('/team', teamRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

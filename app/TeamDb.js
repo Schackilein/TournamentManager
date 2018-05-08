@@ -10,15 +10,16 @@ class TeamDb extends DatabaseMange {
     getTeamDataById(id){
         return this.getQuery('select * from Team',id)
     }
-    updateTeam(id, tname){
-        return this.getQuery('update Team set  teamName =? where id =?', [id, tname]);
+    updateTeam(tname, id){
+        console.log(tname, id);
+        return this.getQuery('update Team set teamName =? where id =?', [tname, id]);
     }
     deletePlayer(id){
         return this.getQuery('delete from Team\n' +
             'where id =?', id)
     }
     addPlayerToTeam(playerid, teamid){
-        return this.getQuery('insert into relation_team_player set ')
+        return this.getQuery('insert into relation_team_player set playerId= ?, teamId= ?', [playerid, teamid])
     }
 }
 

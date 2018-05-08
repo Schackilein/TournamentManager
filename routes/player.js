@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require('../app/Database');
+var db = require('../app/PlayerDb');
 var router = express.Router();
 
 //laenge ist eine variable die, die anzahl der spieler kennt, sobald die Seite geladen wurde

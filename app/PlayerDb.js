@@ -19,7 +19,7 @@ class PlayerDb extends DatabaseMange {
 
 //diese funktion zeigt alle Spieler aus der Datenbank mit values.
     getAllPlayerData() {
-        this.getQuery('select * from Player');
+        return this.getQuery('select * from Player');
     }
 
 //diese funktion zeigt einen Spieler aus der Datenbank mit values.
@@ -27,5 +27,6 @@ class PlayerDb extends DatabaseMange {
         return this.getQuery('select * from Player',id);
     }
 }
+
 
 module.exports =  PlayerDb;

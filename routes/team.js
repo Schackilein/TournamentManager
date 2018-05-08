@@ -79,7 +79,7 @@ router.put('/:id', function (req, res, next) {
 router.put('/:id', function (req, res, next) {
  var relationDb = new db();
  var relationData;
- relationDb.addPlayerToTeam(req.body.playerId,req.params.id).then(function (data) {
+ relationDb.addPlayerToTeam(req.params.playerId,req.params.id).then(function (data) {
      relationData = data;
      res.render('team/addPlayerToTeam',{'teamData':relationData});
  }).catch(function (err) {

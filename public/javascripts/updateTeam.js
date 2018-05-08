@@ -27,7 +27,6 @@ document.getElementById('updateTeamButton').addEventListener('click', function (
     };
     //sendet die Daten aus dem inputfeld an den server
     request.send("newTeamName="+document.getElementById('updateTeamName').value);
-    console.log(document.getElementById('updateTeamName').value);
     document.getElementById('updateTeamName').value = '';
 });
 
@@ -35,8 +34,8 @@ document.getElementById('addPlayerToTeamButton').addEventListener('click', funct
     var request = new XMLHttpRequest();
     var path = window.location.pathname.split('team/');
     //Verbindung herstellen
-    console.log(path);
-    request.open('POST', '/team/');
+    // console.log(path);
+    request.open('POST', '/team/'+path[1]);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     request.responseType = 'text';

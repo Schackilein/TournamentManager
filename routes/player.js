@@ -26,7 +26,7 @@ router.post('/', function (req, res, next) {
     var addPlayerToDb = new db();
     var addPlayerDataToDb;
     // req.body sind die daten aus der ajax
-    addPlayerToDb.addPlayer(laenge,req.body.playerName,'null').then(function (data) {
+    addPlayerToDb.addPlayer(laenge,req.body.playerName).then(function (data) {
         laenge = laenge+1;
         addPlayerDataToDb = data;
         res.render('player/player', {'playerData':addPlayerDataToDb});
